@@ -19,44 +19,11 @@
 			"description": "Whether or not the mod is enabled. Turning this off will remove the flipping.",
 			"default": true
 		},
-		"title-flip-animation": {
-			"type": "title",
-			"name": "Flip Animation",
-			"description": "Controls the rotation that happens when you flip directions."
-		},
-		"rotation-intensity": {
-			"type": "float",
-			"name": "Rotation Intensity",
-			"description": "Changes how noticable the rotation is when you flip directions.",
-			"default": 5,
-			"min": 0,
-			"max": 15,
-			"controls": {
-				"arrows": true,
-				"arrow-step": 0.5,
-				"big-arrows": false,
-				"big-arrow-step": 0.5,
-				"slider": true,
-				"slider-step": 1,
-				"input": false
-			}
-		},
-		"rotation-duration": {
-			"type": "float",
-			"name": "Rotation Duration",
-			"description": "Changes how long the rotation lasts when you flip directions.",
-			"default": 0.25,
-			"min": 0,
-			"max": 2,
-			"controls": {
-				"arrows": true,
-				"arrow-step": 0.05,
-				"big-arrows": false,
-				"big-arrow-step": 0.5,
-				"slider": true,
-				"slider-step": 0.05,
-				"input": false
-			}
+		"subtle-rotation": {
+			"type": "bool",
+			"name": "Subtle Rotation Animation",
+			"description": "Enable/disable a slight rotation applied to the swing when they flip directions.",
+			"default": true
 		}
 	}
 }
