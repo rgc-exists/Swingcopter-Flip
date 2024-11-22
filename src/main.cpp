@@ -56,7 +56,7 @@ class $modify(PlayerObject) {
 
 				if (m_isSwing) {
 					bool flipped = m_isUpsideDown;
-					log::debug("m_isUpsideDown: {}", m_isUpsideDown);
+
 
 					flipSprites(flipped);
 
