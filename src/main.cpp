@@ -46,20 +46,19 @@ class $modify(PlayerObject) {
 		bool modEnabled = Mod::get()->getSettingValue<bool>("mod-enabled");
 		bool rotationEnabled = Mod::get()->getSettingValue<bool>("subtle-rotation");
 		
-		if (rotationEnabled) {
-			float actualDeltaTime = CCDirector::get()->getActualDeltaTime();
+		float actualDeltaTime = CCDirector::get()->getActualDeltaTime();
 
-			if (modEnabled) {
-				m_fields->m_switchTimer += actualDeltaTime;
-				float m_switchTimer = m_fields->m_switchTimer;
-
-
-				if (m_isSwing) {
-					bool flipped = m_isUpsideDown;
+		if (modEnabled) {
+			m_fields->m_switchTimer += actualDeltaTime;
+			float m_switchTimer = m_fields->m_switchTimer;
 
 
-					flipSprites(flipped);
+			if (m_isSwing) {
+				bool flipped = m_isUpsideDown;
+				flipSprites(flipped);
 
+
+				if (rotationEnabled) {
 					CCNode* iconParent = m_iconSprite->getParent();
 
 					float rotation = iconParent->getRotation();
@@ -72,9 +71,9 @@ class $modify(PlayerObject) {
 					}
 					iconParent->setRotation(rotation);
 				}
-				else {
-					m_fields->m_switchRotSpeed = 0;
-				}
+			}
+			else {
+				m_fields->m_switchRotSpeed = 0;
 			}
 		}
 	}
