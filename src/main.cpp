@@ -28,8 +28,6 @@ class $modify(PlayerObject) {
 				m_fields->m_flipDirection = (flipped ? -1 : 1);
 				m_fields->m_switchRotSpeed = switchRotMultiplier;
 
-				flipSprites(flipped);
-
 			}
 		}
 		return PlayerObject::flipGravity(flipped, p1);
@@ -57,6 +55,11 @@ class $modify(PlayerObject) {
 
 
 				if (m_isSwing) {
+					bool flipped = m_isUpsideDown;
+					log::debug("m_isUpsideDown: {}", m_isUpsideDown);
+
+					flipSprites(flipped);
+
 					CCNode* iconParent = m_iconSprite->getParent();
 
 					float rotation = iconParent->getRotation();
