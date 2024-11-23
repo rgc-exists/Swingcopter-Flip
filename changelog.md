@@ -1,3 +1,7 @@
+# 1.0.4
+* Icons no longer stay flipped after switching gamemodes
+* (Note that this was the first release available on the Geode index.)
+
 # 1.0.3
 * Make a setting that makes it so the player is flipped when in REGULAR gravity, since sime swingcopters face up and it feels confusing without it.
 
