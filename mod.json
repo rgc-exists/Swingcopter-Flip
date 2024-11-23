@@ -8,7 +8,7 @@
 	},
 	"id": "rgc_exists.swingcopter_flip",
 	"name": "Swingcopter Flip",
-	"version": "v1.0.2",
+	"version": "v1.0.3",
 	"developer": "RGC Exists",
 	"description": "Flips the player's visuals upside down when gravity is reversed in swingcopter mode. Makes it easier to keep track of what your gravity is.",
 	"tags": ["offline", "customization"],
@@ -17,6 +17,12 @@
 			"type": "bool",
 			"name": "Enabled",
 			"description": "Whether or not the mod is enabled. Turning this off will remove the flipping.",
+			"default": true
+		},
+		"invert-flip": {
+			"type": "bool",
+			"name": "Flip Sprite When Right Side Up",
+			"description": "Flip the sprite when the player is in REGULAR gravity. Most swingcopter icons face up so it can feel confusing without it.",
 			"default": true
 		},
 		"subtle-rotation": {

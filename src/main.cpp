@@ -23,17 +23,18 @@ class $modify(PlayerObject) {
 
 		if (modEnabled) {
 			if (m_isSwing) {
-
 				m_fields->m_switchTimer = 0;
 				m_fields->m_flipDirection = (flipped ? -1 : 1);
 				m_fields->m_switchRotSpeed = switchRotMultiplier;
-
 			}
 		}
 		return PlayerObject::flipGravity(flipped, p1);
 	}
 
 	void flipSprites(bool flipped) {
+		bool invertFlip = Mod::get()->getSettingValue<bool>("invert-flip");
+		if (invertFlip) flipped = !flipped;
+
 		m_iconSprite->setFlipY(flipped);
 		m_iconSpriteSecondary->setFlipY(flipped);
 		m_iconSpriteWhitener->setFlipY(flipped);
