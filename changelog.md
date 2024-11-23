@@ -1,6 +1,5 @@
 # 1.0.3
-* Make it so the player is flipped when in REGULAR gravity, since the swingcopters face up and it feels confusing without it.
-* Make that feature a setting.
+* Make a setting that makes it so the player is flipped when in REGULAR gravity, since sime swingcopters face up and it feels confusing without it.
 
 # 1.0.2
 * remove extra debug message from testing

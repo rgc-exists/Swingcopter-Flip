@@ -7,5 +7,5 @@ If you're just playing for your own fun then this could be a good mod to use. Ot
 *See [this twitter poll](https://x.com/rgc_exists/status/1859424853176066156) for the statistics.*
 
 # "Flip Sprite When Right Side Up" Setting
-**This is a setting that is on by default, because most swingcopter icons face up so it can feel confusing without it.**
-*You can turn it off in the mod settings.*
+**This is a setting that exists because some swingcopter icons face up so it can feel confusing without it.**
+*You can turn it on in the mod settings.*

@@ -22,8 +22,8 @@
 		"invert-flip": {
 			"type": "bool",
 			"name": "Flip Sprite When Right Side Up",
-			"description": "Flip the sprite when the player is in REGULAR gravity. Most swingcopter icons face up so it can feel confusing without it.",
-			"default": true
+			"description": "Flip the sprite when the player is in REGULAR gravity. Some swingcopter icons face up so it can feel confusing without it.",
+			"default": false
 		},
 		"subtle-rotation": {
 			"type": "bool",
