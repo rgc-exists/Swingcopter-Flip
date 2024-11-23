@@ -32,8 +32,6 @@ class $modify(PlayerObject) {
 	}
 
 	void flipSprites(bool flipped) {
-		bool invertFlip = Mod::get()->getSettingValue<bool>("invert-flip");
-		if (invertFlip) flipped = !flipped;
 
 		m_iconSprite->setFlipY(flipped);
 		m_iconSpriteSecondary->setFlipY(flipped);
@@ -52,10 +50,12 @@ class $modify(PlayerObject) {
 		if (modEnabled) {
 			m_fields->m_switchTimer += actualDeltaTime;
 			float m_switchTimer = m_fields->m_switchTimer;
-
-
+			
 			if (m_isSwing) {
+
 				bool flipped = m_isUpsideDown;
+				bool invertFlip = Mod::get()->getSettingValue<bool>("invert-flip");
+				if (invertFlip) flipped = !flipped;
 				flipSprites(flipped);
 
 
@@ -74,6 +74,9 @@ class $modify(PlayerObject) {
 				}
 			}
 			else {
+				
+				flipSprites(false);
+
 				m_fields->m_switchRotSpeed = 0;
 			}
 		}
