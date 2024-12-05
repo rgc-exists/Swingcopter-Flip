@@ -8,7 +8,7 @@
 	},
 	"id": "rgc_exists.swingcopter_flip",
 	"name": "Swingcopter Flip",
-	"version": "v1.0.4",
+	"version": "v1.0.5",
 	"developer": "RGC Exists",
 	"description": "Flips the player's visuals upside down when gravity is reversed in swingcopter mode. Makes it easier to keep track of what your gravity is.",
 	"tags": ["offline", "customization"],

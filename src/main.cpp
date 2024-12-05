@@ -37,6 +37,18 @@ class $modify(PlayerObject) {
 		m_iconSpriteSecondary->setFlipY(flipped);
 		m_iconSpriteWhitener->setFlipY(flipped);
 		m_iconGlow->setFlipY(flipped);
+
+
+		// Compatability for Alphalaneous's "Fine Outline" mod.
+		CCNode* iconParent2nd = m_iconSpriteSecondary->getParent();
+
+		CCNode* fineOutline = iconParent2nd->getChildByID("alphalaneous.fine_outline/black_outline");
+		if (fineOutline) 
+		{
+			CCSprite* outlSprite = (CCSprite*)fineOutline;
+			outlSprite->setFlipY(flipped);
+		}
+
 	}
 
 	virtual void update(float dt) {
