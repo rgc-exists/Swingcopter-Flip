@@ -2,13 +2,37 @@
 #include <math.h>
 
 #include <Geode/Geode.hpp>
-using namespace geode::prelude;
+#include <Geode/loader/SettingV3.hpp>
 
 #include <Geode/modify/PlayerObject.hpp>
 
+#include "databases.hpp"
+
+using namespace geode::prelude;
 
 float switchRotMultiplier = 8;
 float switchRotTime = 0.05f;
+
+bool modEnabled = true;
+bool rotationEnabled = true;
+std::string invertFlipSetting = "AUTO";
+
+$on_mod(Loaded) {
+	modEnabled = Mod::get()->getSettingValue<bool>("mod-enabled");
+	rotationEnabled = Mod::get()->getSettingValue<bool>("subtle-rotation");
+	invertFlipSetting = Mod::get()->getSettingValue<std::string>("invert-flip-v2");
+
+
+	listenForSettingChanges<bool>("mod-enabled", [](bool value) {
+		modEnabled = value;
+	});
+	listenForSettingChanges<bool>("subtle-rotation", [](bool value) {
+		rotationEnabled = value;
+	});
+	listenForSettingChanges<std::string>("invert-flip-v2", [](std::string value) {
+		invertFlipSetting = value;
+	});
+}
 
 class $modify(PlayerObject) {
 	struct Fields {
@@ -53,11 +77,16 @@ class $modify(PlayerObject) {
 
 	virtual void update(float dt) {
 		PlayerObject::update(dt);
-
-		bool modEnabled = Mod::get()->getSettingValue<bool>("mod-enabled");
-		bool rotationEnabled = Mod::get()->getSettingValue<bool>("subtle-rotation");
 		
 		float actualDeltaTime = CCDirector::get()->getActualDeltaTime();
+
+		bool invertFlip = (invertFlipSetting == "ON");
+		if (invertFlipSetting == "AUTO") {
+			if (iconFlipDefaults.contains(GameManager::get()->getPlayerSwing())) {
+				invertFlip = iconFlipDefaults[GameManager::get()->getPlayerSwing()];
+			}
+		}
+		
 
 		if (modEnabled) {
 			m_fields->m_switchTimer += actualDeltaTime;
@@ -66,7 +95,6 @@ class $modify(PlayerObject) {
 			if (m_isSwing) {
 
 				bool flipped = m_isUpsideDown;
-				bool invertFlip = Mod::get()->getSettingValue<bool>("invert-flip");
 				if (invertFlip) flipped = !flipped;
 				flipSprites(flipped);
 
