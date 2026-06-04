@@ -1,3 +1,7 @@
+# 1.1.0
+* Changed the "Flip Sprite When Right Side Up" setting to (BY DEFAULT) be automatic based on which icon you have selected. *This is how RobTop could implement it.*
+* Update to 2.208
+
 # 1.0.5
 * Add compatability for Alphalaneous's "Fine Outline" mod.
 
