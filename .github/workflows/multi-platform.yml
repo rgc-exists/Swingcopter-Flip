@@ -18,10 +18,6 @@ jobs:
         - name: macOS
           os: macos-latest
 
-        - name: iOS
-          os: macos-latest
-          target: iOS
-
         - name: Android32
           os: ubuntu-latest
           target: Android32
@@ -35,10 +31,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      
-      - name: Clear previous build folder
-        shell: bash
-        run: rm -rf out
 
       - name: Build the mod
         uses: geode-sdk/build-geode-mod@main
